@@ -14,3 +14,13 @@
 .ArticleList {
   list-style-type: none;
 }
+
+.Comment {
+  border-style: outset;
+  box-shadow: 5px 10px #888888;
+  margin-bottom: 20px;
+}
+
+.CommentList {
+  list-style-type: none;
+}
