@@ -2,6 +2,7 @@ import "./App.css";
 import GetArticles from "./Components/GetArticles";
 import Home from "./Components/Home";
 import { Link, Route, Routes } from "react-router-dom";
+import IndividualArticle from "./Components/IndividualArticle";
 
 function App() {
   return (
@@ -14,6 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/api/articles" element={<GetArticles />} />
+        <Route
+          path="/api/articles/:article_id"
+          element={<IndividualArticle />}
+        />
       </Routes>
     </>
   );
