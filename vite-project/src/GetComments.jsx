@@ -16,18 +16,25 @@ function GetComments() {
     });
   }, []);
 
-  console.log(comments);
-
   return (
     <ul className="CommentList">
       {comments.map((comment, index) => {
+        let date = "Loading...";
+        date = new Date(Date.parse(comment.created_at));
         return (
           <li key={index}>
             <section className="Comment">
               <p>Comment ID: {comment.comment_id}</p>
               <p>Author: {comment.author}</p>
               <p>Body: {comment.body}</p>
-              <p>Created At: {comment.created_at}</p>
+              <p>
+                Created At:{" "}
+                {date.getDate() +
+                  "/" +
+                  (Number(date.getMonth()) + 1) +
+                  "/" +
+                  date.getFullYear()}
+              </p>
               <p>Votes: {comment.votes}</p>
             </section>
           </li>

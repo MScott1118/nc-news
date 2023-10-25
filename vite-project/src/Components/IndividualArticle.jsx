@@ -30,7 +30,8 @@ function IndividualArticle() {
     }
   });
 
-  let date = singleArticle[0].created_at;
+  let date = "Loading...";
+  date = new Date(Date.parse(singleArticle[0].created_at));
 
   return (
     <>
@@ -41,7 +42,14 @@ function IndividualArticle() {
       <p>Body: {singleArticle[0].body}</p>
       <p>Votes: {singleArticle[0].votes}</p>
       <p>Comment Count: {singleArticle[0].comment_count}</p>
-      <p>Created At: {date}</p>
+      <p>
+        Created At:{" "}
+        {date.getDate() +
+          "/" +
+          (Number(date.getMonth()) + 1) +
+          "/" +
+          date.getFullYear()}
+      </p>
       <img src={`${singleArticle[0].article_img_url}`} alt="Article Image" />
       <p></p>
       <Link to="comments">See all comments</Link>
