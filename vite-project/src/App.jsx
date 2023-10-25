@@ -1,6 +1,7 @@
 import "./App.css";
 import GetArticles from "./Components/GetArticles";
 import Home from "./Components/Home";
+import GetComments from "./GetComments";
 import { Link, Route, Routes } from "react-router-dom";
 import IndividualArticle from "./Components/IndividualArticle";
 
@@ -18,6 +19,10 @@ function App() {
         <Route
           path="/api/articles/:article_id"
           element={<IndividualArticle />}
+        />
+        <Route
+          path="/api/articles/:article_id/comments"
+          element={<GetComments />}
         />
       </Routes>
     </>

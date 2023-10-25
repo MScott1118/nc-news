@@ -1,7 +1,6 @@
 import { AllArticles } from "./GetRequests/AllArticles";
 import { useState, useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import IndividualArticle from "./IndividualArticle";
 
 function ArticleCard() {
   const [articles, setArticles] = useState([]);
