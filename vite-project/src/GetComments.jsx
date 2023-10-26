@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { AllComments } from "./Components/GetRequests/AllComments";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function GetComments() {
   let { article_id } = useParams();
@@ -39,6 +40,7 @@ function GetComments() {
           </li>
         );
       })}
+      <Link to="new">Create New Comment!</Link>
     </ul>
   );
 }
