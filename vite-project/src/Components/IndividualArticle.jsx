@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { GetIndividualArticle } from "./GetRequests/GetIndividualArticle";
 import { AllArticles } from "./GetRequests/AllArticles";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 function IndividualArticle() {
@@ -72,9 +71,12 @@ export default IndividualArticle;
 
 const IncreaseVotes = (singleArticle) => {
   return axios
-    .patch(`https://nc-news-32mx.onrender.com/api/articles/28`, {
-      inc_votes: 1,
-    })
+    .patch(
+      `https://nc-news-32mx.onrender.com/api/articles/${singleArticle[0].article_id}`,
+      {
+        inc_votes: 1,
+      }
+    )
     .then((res) => {
       console.log(res);
       window.location.reload(false);
@@ -86,9 +88,12 @@ const IncreaseVotes = (singleArticle) => {
 
 function downVote(singleArticle) {
   return axios
-    .patch(`https://nc-news-32mx.onrender.com/api/articles/28`, {
-      inc_votes: -1,
-    })
+    .patch(
+      `https://nc-news-32mx.onrender.com/api/articles/${singleArticle[0].article_id}`,
+      {
+        inc_votes: -1,
+      }
+    )
     .then((res) => {
       console.log(res);
       window.location.reload(false);
