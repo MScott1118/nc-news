@@ -3,6 +3,7 @@ import { GetIndividualArticle } from "./GetRequests/GetIndividualArticle";
 import { AllArticles } from "./GetRequests/AllArticles";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function IndividualArticle() {
   let { article_id } = useParams();
@@ -52,9 +53,47 @@ function IndividualArticle() {
       </p>
       <img src={`${singleArticle[0].article_img_url}`} alt="Article Image" />
       <p></p>
+      <button
+        className="voteButton"
+        onClick={() => IncreaseVotes(singleArticle)}
+      >
+        Upvote!
+      </button>
+      <button className="voteButton" onClick={() => downVote(singleArticle)}>
+        Downvote!
+      </button>
+      <p></p>
       <Link to="comments">See all comments</Link>
     </>
   );
 }
 
 export default IndividualArticle;
+
+const IncreaseVotes = (singleArticle) => {
+  return axios
+    .patch(`https://nc-news-32mx.onrender.com/api/articles/28`, {
+      inc_votes: 1,
+    })
+    .then((res) => {
+      console.log(res);
+      window.location.reload(false);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+function downVote(singleArticle) {
+  return axios
+    .patch(`https://nc-news-32mx.onrender.com/api/articles/28`, {
+      inc_votes: -1,
+    })
+    .then((res) => {
+      console.log(res);
+      window.location.reload(false);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}

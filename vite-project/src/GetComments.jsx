@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 function GetComments() {
   let { article_id } = useParams();
-  console.log(article_id);
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
