@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { AllComments } from "./Components/GetRequests/AllComments";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function GetComments() {
   let { article_id } = useParams();
-  console.log(article_id);
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -40,6 +40,7 @@ function GetComments() {
           </li>
         );
       })}
+      <Link to="new">Create New Comment!</Link>
     </ul>
   );
 }
