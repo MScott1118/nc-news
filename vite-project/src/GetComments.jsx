@@ -19,6 +19,8 @@ function GetComments() {
 
   return (
     <ul className="CommentList">
+      <Link to="new">Create New Comment!</Link>
+      <p></p>
       {comments.map((comment, index) => {
         let date = "Loading...";
         date = new Date(Date.parse(comment.created_at));
@@ -48,7 +50,6 @@ function GetComments() {
           </li>
         );
       })}
-      <Link to="new">Create New Comment!</Link>
     </ul>
   );
 }
