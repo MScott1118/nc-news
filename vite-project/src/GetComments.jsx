@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AllComments } from "./Components/GetRequests/AllComments";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function GetComments() {
   let { article_id } = useParams();
@@ -36,6 +37,13 @@ function GetComments() {
                   date.getFullYear()}
               </p>
               <p>Votes: {comment.votes}</p>
+              <button
+                className="deleteComment"
+                onClick={() => deleteComment(comment.comment_id)}
+              >
+                Delete Comment
+              </button>
+              <p></p>
             </section>
           </li>
         );
@@ -45,4 +53,11 @@ function GetComments() {
   );
 }
 
+function deleteComment(comment_id) {
+  return axios
+    .delete(`https://nc-news-32mx.onrender.com/api/comments/${comment_id}`)
+    .then(() => {
+      window.location.reload(false);
+    });
+}
 export default GetComments;
