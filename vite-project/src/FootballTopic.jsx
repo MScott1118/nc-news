@@ -28,7 +28,9 @@ function FootballTopic() {
               <p>Title: {article.title}</p>
               <p>Author: {article.author}</p>
               <p>Topic: {article.topic}</p>
-              <Link to={`${article.article_id}`}>Visit Article</Link>
+              <Link to={`/api/articles/${article.article_id}`}>
+                Visit Article
+              </Link>
               <p></p>
             </section>
           </li>
