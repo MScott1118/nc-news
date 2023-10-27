@@ -1,8 +1,13 @@
-# React + Vite
+Deployed Version: https://mscott-nc-news.netlify.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front-end development of my nc-news project, displays all articles and comments for each comment. Allows for the user to search for articles based on their topic,
+as well as vote and comment on each article.
 
-Currently, two official plugins are available:
+Back-end Repo: https://github.com/MScott1118/be-project-ncNews
+Node Version: V20.5.1
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+How to run project locally:
+
+git clone https://github.com/MScott1118/nc-news
+cd vite-project
+npm run dev
