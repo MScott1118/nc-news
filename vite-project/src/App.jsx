@@ -6,9 +6,11 @@ import PostComment from "./PostComment";
 import Topics from "./Components/Topics";
 import CookingTopic from "./CookingTopic";
 import CodingTopic from "./CodingTopic";
+import ErrorPage from "./ErrorPage";
 import FootballTopic from "./FootballTopic";
 import { Link, Route, Routes } from "react-router-dom";
 import IndividualArticle from "./Components/IndividualArticle";
+import PostCommentError from "./PostCommentError";
 
 function App() {
   return (
@@ -38,6 +40,11 @@ function App() {
         <Route path="/api/topics/cooking" element={<CookingTopic />} />
         <Route path="/api/topics/coding" element={<CodingTopic />} />
         <Route path="/api/topics/football" element={<FootballTopic />} />
+        <Route path="*" element={<ErrorPage />} />
+        <Route
+          path="/api/articles/:article_id/comments/new/error"
+          element={<PostCommentError />}
+        />
       </Routes>
     </>
   );

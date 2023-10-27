@@ -12,9 +12,13 @@ function PostComment() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          handleSubmit(username, body, article_id).then(() => {
-            navigate(`/api/articles/${article_id}/comments`);
-          });
+          handleSubmit(username, body, article_id)
+            .then(() => {
+              navigate(`/api/articles/${article_id}/comments`);
+            })
+            .catch((err) => {
+              navigate(`/api/articles/${article_id}/comments/new/error`);
+            });
         }}
       >
         <label>
@@ -44,6 +48,12 @@ function PostComment() {
 }
 
 function handleSubmit(username, body, article_id) {
+  // const navigate = useNavigate();
+
+  // if (username === "" || body === "") {
+  //   navigate(`/api/articles/${article_id}/comments/new/error`);
+  // }
+
   return axios
     .post(
       `https://nc-news-32mx.onrender.com/api/articles/${article_id}/comments`,
@@ -54,6 +64,7 @@ function handleSubmit(username, body, article_id) {
     })
     .catch((error) => {
       console.log(error);
+      throw new error();
     });
 }
 
